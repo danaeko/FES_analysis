@@ -1,0 +1,18 @@
+library(metadynminer)
+hillsf<-read.hills("WALKERS_SIMS/HILLS.all")
+#hillsf$hillsfile <- subset(hillsf$hillsfile, select = -c(V8))
+hillsf$filename <- "HILLS2d"
+hillsf$hillsfile$V1 <- as.numeric(hillsf$hillsfile$V1)
+hillsf$size <- as.integer(c(hillsf$size[1], 7))
+tfes<-fes(hillsf)
+tfes<-(tfes-min(tfes))/4.184
+minima<-fesminima(tfes)
+plot(tfes, colscale=T)
+plot(minima)
+write.csv(tfes$x, "WALKERS_SIMS/x_draft.csv")
+write.csv(tfes$y, "WALKERS_SIMS/y_draft.csv")
+write.csv(tfes$fes, "/WALKERS_SIMS/fes_draft.csv")
+myneb1 <- neb(minima, min1="A", min2="R")
+linesonfes(myneb1)
+max(myneb1$path)
+write.csv(myneb1$path, "path1.csv", row.names=FALSE)
