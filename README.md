@@ -1,6 +1,6 @@
 # Construction of the FES and Identification of the Transition State
 
-Using the R package **Metadynminer** [196], the **Free Energy Surface (FES)** can be estimated as a negative imprint of the added hills. Using the same package, the free energy minima and the transition path along with the transition state can be extracted for the system using the following equation (Equation 45):
+Using the R package **Metadynminer**, the **Free Energy Surface (FES)** can be estimated as a negative imprint of the added hills. Using the same package, the free energy minima and the transition path along with the transition state can be extracted for the system using the following equation:
 
 $$
 G_{(S)} = -kT \log(P(s)) = -\frac{(T+\Delta T)}{\Delta T} V(s) = -\frac{(T+\Delta T)}{\Delta T} \sum_i w_i \exp\left(-\frac{(s - S_i)^2}{2\sigma^2}\right)
